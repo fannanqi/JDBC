@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .el-header {
+            background-color: #B3C0D1;
+            color: #333;
+            text-align: center;
+        }
+
+        .student-title {
+            margin-top: 17px;
+            color: #606266;
+        }
+
+        .el-main {
+            background-color: #E9EEF3;
+            color: #333;
+        }
+
+        .choose {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        #app {
+            height: auto;
+            weight: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+<el-container id="container" style="height: 800px; border: 1px ">
+    <el-container>
+
+        <!--            头部-->
+        <el-header>
+            <p class="student-title">学生成绩信息管理系统</p>
+        </el-header>
+
+        <!--            中间主体-->
+        <el-main>
+            <!--                表格-->
+            <template>
+                <el-table
+                        :data="tableData"
+                        border
+                        style="width: 100%">
+                    <el-table-column
+                            prop="id"
+                            label="学号">
+                    </el-table-column>
+                    <el-table-column
+                            prop="name"
+                            label="姓名">
+                    </el-table-column>
+                    <el-table-column
+                            prop="sex"
+                            label="年龄">
+                    </el-table-column>
+                    <el-table-column
+                            prop="chinese"
+                            label="语文">
+                    </el-table-column>
+                    <el-table-column
+                            prop="math"
+                            label="数学">
+                    </el-table-column>
+                    <el-table-column
+                            prop="eng"
+                            label="英语">
+                    </el-table-column>
+                    <el-table-column
+                            prop="sport"
+                            label="体育">
+                    </el-table-column>
+                </el-table>
+            </template>
+        </el-main>
+    </el-container>
+</el-container>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script src="element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+</html>

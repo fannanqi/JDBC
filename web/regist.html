@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    .titleName{
+        text-align: center;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 3;
+        color: #181818;
+    }
+    .loginForm{
+        text-align: right;
+        margin-top: 160px;
+        line-height: 17px;
+        font-size: 26px;
+        margin-right: 100px;
+    }
+    input{
+        font-size:20px;
+        margin-right: 200px;
+    }
+    .form-group{
+        margin-top:29px;
+        line-height: 17px;
+    }
+    .button{
+        margin-top: 12px;
+        margin-right: 220px;
+    }
+</style>
+</head>
+<body>
+<div id="app">
+    <div class="login-form">
+        <h2 class="titleName">注册</h2>
+        <form class="loginForm">
+            <div class="form-group">
+                <i class="el-icon-s-custom"></i>
+                <input type="text" id="username"  v-model="username" placeholder="请输入用户名">
+            </div>
+            <div class="form-group">
+                <i class="el-icon-lock"></i>
+                <input type="password" id="password"  v-model="password" placeholder="请输入密码">
+            </div>
+            <div class="button">
+                <el-button  round id="registerButton" @click="regist()">注册</el-button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script src="element-ui/lib/index.js"></script>
+<script src="js/axios-0.18.0.js"></script>
+<link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            username: '',
+            password: '',
+        },
+        methods:{
+            regist(){
+                axios.post("/jdbc/regist",{username:this.username,password:this.password}).then(response => {
+                    if(response.data==="ok"){
+                        window.location.href = '/login.html';
+                        alert("注册成功！");
+                    }else {
+                        alert("注册失败！");
+                    }
+                })
+                // 清空输入框
+                this.username = '';
+                this.password = '';
+            },
+        },
+
+    })
+</script>
+</html>
